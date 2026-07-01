@@ -3,13 +3,12 @@
    Inhalt:
    1. Mobile Navigation
    2. Aktives Nav-Highlighting beim Scrollen
-   3. Scroll-Reveal-Animationen
-   4. Sortiment-Filter
-   5. Öffnungszeiten-Status
-   6. Galerie-Lightbox
-   7. Zurück-nach-oben-Button
-   8. Copyright-Jahr
-   9. FAQ-Akkordeon
+   3. Sortiment-Filter
+   4. Öffnungszeiten-Status
+   5. Galerie-Lightbox
+   6. Zurück-nach-oben-Button
+   7. Copyright-Jahr
+   8. FAQ-Akkordeon
    ========================================================================== */
 (function () {
   "use strict";
@@ -17,7 +16,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     initMobileNav();
     initActiveNavHighlighting();
-    initScrollReveal();
     initCategoryFilter();
     initOpeningHoursStatus();
     initGalleryLightbox();
@@ -89,36 +87,7 @@
     });
   }
 
-  /* ---------- 3. Scroll-Reveal-Animationen ---------- */
-  function initScrollReveal() {
-    var revealEls = document.querySelectorAll(".reveal");
-    if (!revealEls.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      revealEls.forEach(function (el) {
-        el.classList.add("is-revealed");
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    revealEls.forEach(function (el) {
-      observer.observe(el);
-    });
-  }
-
-  /* ---------- 4. Sortiment-Filter ---------- */
+  /* ---------- 3. Sortiment-Filter ---------- */
   function initCategoryFilter() {
     var filterButtons = document.querySelectorAll(".category-filters button");
     var cards = document.querySelectorAll(".category-card");
@@ -146,7 +115,7 @@
     });
   }
 
-  /* ---------- 5. Öffnungszeiten-Status ---------- */
+  /* ---------- 4. Öffnungszeiten-Status ---------- */
   function initOpeningHoursStatus() {
     var badge = document.getElementById("status-badge");
     var table = document.getElementById("hours-table");
@@ -183,7 +152,7 @@
     }
   }
 
-  /* ---------- 6. Galerie-Lightbox ---------- */
+  /* ---------- 5. Galerie-Lightbox ---------- */
   function initGalleryLightbox() {
     var items = document.querySelectorAll(".gallery-item");
     var lightbox = document.getElementById("lightbox");
@@ -234,7 +203,7 @@
     });
   }
 
-  /* ---------- 7. Zurück-nach-oben-Button ---------- */
+  /* ---------- 6. Zurück-nach-oben-Button ---------- */
   function initBackToTop() {
     var button = document.getElementById("back-to-top");
     if (!button) return;
@@ -251,14 +220,14 @@
     });
   }
 
-  /* ---------- 8. Copyright-Jahr ---------- */
+  /* ---------- 7. Copyright-Jahr ---------- */
   function initCopyrightYear() {
     var yearEl = document.getElementById("copyright-year");
     if (!yearEl) return;
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  /* ---------- 9. FAQ-Akkordeon ---------- */
+  /* ---------- 8. FAQ-Akkordeon ---------- */
   function initFaqAccordion() {
     var faqItems = document.querySelectorAll(".faq-item");
     if (!faqItems.length) return;

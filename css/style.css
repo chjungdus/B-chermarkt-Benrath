@@ -14,8 +14,7 @@
    11. Footer
    12. Rechtsseiten (Impressum / Datenschutz)
    13. Zurück-nach-oben-Button
-   14. Scroll-Reveal-Animation
-   15. Responsive Anpassungen
+   14. Responsive Anpassungen
    ========================================================================== */
 
 /* ---------- 1. Reset & Grundlagen ---------- */
@@ -984,31 +983,13 @@ section h2 {
   background-color: var(--color-forest-light);
 }
 
-/* ---------- 14. Scroll-Reveal-Animation ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }
 
-/* ---------- 15. Responsive Anpassungen ---------- */
+/* ---------- 14. Responsive Anpassungen ---------- */
 @media (max-width: 900px) {
   .about-grid,
   .hours-layout {
