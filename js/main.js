@@ -9,8 +9,7 @@
    6. Galerie-Lightbox
    7. Zurück-nach-oben-Button
    8. Copyright-Jahr
-   9. Kundenstimmen-Karussell
-   10. FAQ-Akkordeon
+   9. FAQ-Akkordeon
    ========================================================================== */
 (function () {
   "use strict";
@@ -24,7 +23,6 @@
     initGalleryLightbox();
     initBackToTop();
     initCopyrightYear();
-    initTestimonialCarousel();
     initFaqAccordion();
   });
 
@@ -260,60 +258,7 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  /* ---------- 9. Kundenstimmen-Karussell ---------- */
-  function initTestimonialCarousel() {
-    var track = document.getElementById("testimonial-track");
-    var prevButton = document.getElementById("testimonial-prev");
-    var nextButton = document.getElementById("testimonial-next");
-    var dotsContainer = document.getElementById("testimonial-dots");
-    if (!track || !prevButton || !nextButton || !dotsContainer) return;
-
-    var slides = track.querySelectorAll(".testimonial-slide");
-    if (!slides.length) return;
-
-    var currentIndex = 0;
-    var dots = [];
-
-    slides.forEach(function (_, index) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.setAttribute("role", "tab");
-      dot.setAttribute("aria-label", "Stimme " + (index + 1) + " anzeigen");
-      dot.addEventListener("click", function () {
-        goToSlide(index);
-      });
-      dotsContainer.appendChild(dot);
-      dots.push(dot);
-    });
-
-    function goToSlide(index) {
-      currentIndex = (index + slides.length) % slides.length;
-      track.style.transform = "translateX(-" + currentIndex * 100 + "%)";
-      dots.forEach(function (dot, dotIndex) {
-        dot.classList.toggle("active", dotIndex === currentIndex);
-      });
-    }
-
-    prevButton.addEventListener("click", function () {
-      goToSlide(currentIndex - 1);
-    });
-
-    nextButton.addEventListener("click", function () {
-      goToSlide(currentIndex + 1);
-    });
-
-    goToSlide(0);
-
-    var autoplayInterval = window.setInterval(function () {
-      goToSlide(currentIndex + 1);
-    }, 7000);
-
-    track.closest(".testimonial-carousel").addEventListener("mouseenter", function () {
-      window.clearInterval(autoplayInterval);
-    });
-  }
-
-  /* ---------- 10. FAQ-Akkordeon ---------- */
+  /* ---------- 9. FAQ-Akkordeon ---------- */
   function initFaqAccordion() {
     var faqItems = document.querySelectorAll(".faq-item");
     if (!faqItems.length) return;
