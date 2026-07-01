@@ -303,25 +303,15 @@ section[id] {
 /* ---------- 6. Hero ---------- */
 .hero {
   background-color: var(--color-forest);
+  background-image: linear-gradient(120deg, rgba(34, 57, 44, 0.92), rgba(47, 79, 62, 0.78)),
+    url("../assets/img/schaufenster.jpg");
+  background-size: cover;
+  background-position: center;
   color: var(--color-white);
   padding-block: calc(var(--space-xl) * 1.4) var(--space-xl);
   position: relative;
   overflow: hidden;
   border-bottom: 4px solid var(--color-gold);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(255, 253, 248, 0.035) 0px,
-    rgba(255, 253, 248, 0.035) 1px,
-    transparent 1px,
-    transparent 14px
-  );
-  pointer-events: none;
 }
 
 .hero .container {
@@ -578,6 +568,40 @@ section[id] {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-gold);
+  margin-bottom: 0;
+}
+
+/* ---------- 8c. Kinderabteilung ---------- */
+.kids-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.kids-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+}
+
+.kids-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.kids-card-body {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+.kids-card-body h3 {
+  color: var(--color-forest-dark);
+}
+
+.kids-card-body p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
   margin-bottom: 0;
 }
 
