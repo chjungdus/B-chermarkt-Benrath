@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>[Platzhalter: Ladenname] – Bücherladen in Benrath</title>
+<meta name="description" content="[Platzhalter: Ladenname] ist ein inhabergeführter Bücherladen in Benrath mit einer sorgfältig kuratierten Auswahl an Romanen, Sachbüchern und Antiquariat." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#hauptinhalt">Zum Hauptinhalt springen</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      [Platzhalter: Ladenname]
+      <span>Bücherladen in Benrath</span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#sortiment">Sortiment</a></li>
+        <li><a href="#oeffnungszeiten">Öffnungszeiten</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Navigation öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="hauptinhalt">
+
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Seit [Platzhalter: Gründungsjahr]</p>
+      <h1>[Platzhalter: Ladenname]</h1>
+      <p class="hero-lead">[Platzhalter: Kurzer Claim, z. B. „Bücher mit Charakter – ausgesucht, empfohlen und gebunden für Benrath.“]</p>
+      <dl class="hero-meta">
+        <div>
+          <dt>Adresse</dt>
+          <dd>[Platzhalter: Musterstraße 1, 12345 Benrath]</dd>
+        </div>
+        <div>
+          <dt>Öffnungszeiten</dt>
+          <dd>[Platzhalter: Mo–Sa 9:00–18:00 Uhr]</dd>
+        </div>
+      </dl>
+      <span class="scroll-hint">Weiterlesen</span>
+    </div>
+  </section>
+
+  <section id="ueber-uns" class="reveal">
+    <div class="container about-grid">
+      <div>
+        <h2>Über uns</h2>
+        <p class="section-intro">[Platzhalter: Ein bis zwei Sätze zur Einleitung des Über-uns-Textes.]</p>
+        <p>[Platzhalter: Absatz 1 – Geschichte des Ladens, wann und warum er gegründet wurde, was ihn besonders macht.]</p>
+        <p>[Platzhalter: Absatz 2 – Sortimentsphilosophie, z. B. Auswahlkriterien, persönliche Beratung, regionale Autor:innen.]</p>
+        <p>[Platzhalter: Absatz 3 – Atmosphäre im Laden, Leseecke, Veranstaltungen falls vorhanden.]</p>
+        <ul class="about-facts">
+          <li><strong>Inhaber:in</strong> <span>[Platzhalter: Name]</span></li>
+          <li><strong>Gegründet</strong> <span>[Platzhalter: Jahr]</span></li>
+          <li><strong>Schwerpunkt</strong> <span>[Platzhalter: z. B. Belletristik & Antiquariat]</span></li>
+        </ul>
+      </div>
+      <figure class="about-figure">
+        <div class="placeholder-pattern" aria-hidden="true"></div>
+        <figcaption>[Platzhalter: Foto Ladeninhaber:in / Innenansicht]</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="sortiment" class="section-alt reveal">
+    <div class="container">
+      <h2 class="centered">Unser Sortiment</h2>
+      <p class="section-intro centered">Ein Überblick über die Bereiche, die Sie bei uns im Laden finden. Klicken Sie auf eine Kategorie, um sie hervorzuheben.</p>
+
+      <div class="category-filters" role="group" aria-label="Sortiment filtern">
+        <button type="button" class="active" data-filter="alle">Alle</button>
+        <button type="button" data-filter="romane">Romane</button>
+        <button type="button" data-filter="krimis">Krimis &amp; Thriller</button>
+        <button type="button" data-filter="kinder">Kinderbücher</button>
+        <button type="button" data-filter="sachbuch">Sachbücher</button>
+        <button type="button" data-filter="antiquariat">Antiquariat</button>
+        <button type="button" data-filter="geschenke">Geschenke &amp; Papeterie</button>
+      </div>
+
+      <div class="category-grid" id="category-grid">
+        <article class="category-card" data-category="romane">
+          <p class="cat-number">01</p>
+          <h3>Romane</h3>
+          <p>[Platzhalter: Kurzbeschreibung – z. B. Gegenwartsliteratur, Klassiker, internationale Bestseller.]</p>
+        </article>
+        <article class="category-card" data-category="krimis">
+          <p class="cat-number">02</p>
+          <h3>Krimis &amp; Thriller</h3>
+          <p>[Platzhalter: Kurzbeschreibung – z. B. regionale und internationale Spannungsliteratur.]</p>
+        </article>
+        <article class="category-card" data-category="kinder">
+          <p class="cat-number">03</p>
+          <h3>Kinderbücher</h3>
+          <p>[Platzhalter: Kurzbeschreibung – Bilderbücher, Erstlesebücher, Jugendbücher.]</p>
+        </article>
+        <article class="category-card" data-category="sachbuch">
+          <p class="cat-number">04</p>
+          <h3>Sachbücher</h3>
+          <p>[Platzhalter: Kurzbeschreibung – Geschichte, Kochen, Reise, Ratgeber.]</p>
+        </article>
+        <article class="category-card" data-category="antiquariat">
+          <p class="cat-number">05</p>
+          <h3>Antiquariat</h3>
+          <p>[Platzhalter: Kurzbeschreibung – gebrauchte und seltene Ausgaben.]</p>
+        </article>
+        <article class="category-card" data-category="geschenke">
+          <p class="cat-number">06</p>
+          <h3>Geschenke &amp; Papeterie</h3>
+          <p>[Platzhalter: Kurzbeschreibung – Karten, Notizbücher, kleine Geschenkartikel.]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="empfehlungen" class="reveal">
+    <div class="container">
+      <h2 class="centered">Empfehlungen des Monats</h2>
+      <p class="section-intro centered">Eine kleine Auswahl dessen, was gerade auf unserem Empfehlungstisch liegt.</p>
+      <div class="book-tip-grid">
+        <article class="book-tip-card">
+          <p class="book-tip-badge">Empfehlung</p>
+          <h3>[Platzhalter: Buchtitel 1]</h3>
+          <p class="book-tip-author">[Platzhalter: Autor:in]</p>
+          <p>[Platzhalter: Kurze, persönliche Beschreibung, warum dieses Buch empfohlen wird.]</p>
+          <p class="book-tip-genre">[Platzhalter: Genre]</p>
+        </article>
+        <article class="book-tip-card">
+          <p class="book-tip-badge">Empfehlung</p>
+          <h3>[Platzhalter: Buchtitel 2]</h3>
+          <p class="book-tip-author">[Platzhalter: Autor:in]</p>
+          <p>[Platzhalter: Kurze, persönliche Beschreibung, warum dieses Buch empfohlen wird.]</p>
+          <p class="book-tip-genre">[Platzhalter: Genre]</p>
+        </article>
+        <article class="book-tip-card">
+          <p class="book-tip-badge">Empfehlung</p>
+          <h3>[Platzhalter: Buchtitel 3]</h3>
+          <p class="book-tip-author">[Platzhalter: Autor:in]</p>
+          <p>[Platzhalter: Kurze, persönliche Beschreibung, warum dieses Buch empfohlen wird.]</p>
+          <p class="book-tip-genre">[Platzhalter: Genre]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="oeffnungszeiten" class="reveal">
+    <div class="container hours-layout">
+      <div>
+        <h2>Öffnungszeiten</h2>
+        <p class="status-badge is-closed" id="status-badge">Öffnungszeiten werden geprüft …</p>
+        <table class="hours-table" id="hours-table">
+          <tbody>
+            <tr data-day="1"><th>Montag</th><td>[Platzhalter: 9:00–18:00 Uhr]</td></tr>
+            <tr data-day="2"><th>Dienstag</th><td>[Platzhalter: 9:00–18:00 Uhr]</td></tr>
+            <tr data-day="3"><th>Mittwoch</th><td>[Platzhalter: 9:00–18:00 Uhr]</td></tr>
+            <tr data-day="4"><th>Donnerstag</th><td>[Platzhalter: 9:00–18:00 Uhr]</td></tr>
+            <tr data-day="5"><th>Freitag</th><td>[Platzhalter: 9:00–18:00 Uhr]</td></tr>
+            <tr data-day="6"><th>Samstag</th><td>[Platzhalter: 9:00–14:00 Uhr]</td></tr>
+            <tr data-day="0"><th>Sonntag</th><td>Geschlossen</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="location-box">
+        <h2>Standort</h2>
+        <address>
+          <p>[Platzhalter: Ladenname]</p>
+          <p>[Platzhalter: Musterstraße 1]</p>
+          <p>[Platzhalter: 12345 Benrath]</p>
+        </address>
+        <div class="map-placeholder">
+          <div>
+            <span>[Platzhalter: Kartenausschnitt]</span>
+            Sobald die genaue Adresse feststeht, wird hier eine Standortkarte eingebunden.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie" class="section-alt reveal">
+    <div class="container">
+      <h2 class="centered">Einblicke in den Laden</h2>
+      <p class="section-intro centered">Ein paar Impressionen aus [Platzhalter: Ladenname]. Sobald eigene Fotos vorliegen, ersetzen sie diese Platzhalter.</p>
+      <div class="gallery-grid" id="gallery-grid">
+        <button type="button" class="gallery-item" data-caption="[Platzhalter: Schaufenster von außen]">
+          <div class="placeholder-pattern" aria-hidden="true"></div>
+          <figcaption>Schaufenster</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="[Platzhalter: Regale mit Romanen]">
+          <div class="placeholder-pattern" aria-hidden="true"></div>
+          <figcaption>Romane-Regal</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="[Platzhalter: Leseecke mit Sitzgelegenheit]">
+          <div class="placeholder-pattern" aria-hidden="true"></div>
+          <figcaption>Leseecke</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="[Platzhalter: Verkaufstheke]">
+          <div class="placeholder-pattern" aria-hidden="true"></div>
+          <figcaption>Verkaufstheke</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="[Platzhalter: Antiquariat-Ecke]">
+          <div class="placeholder-pattern" aria-hidden="true"></div>
+          <figcaption>Antiquariat</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="[Platzhalter: Ladeneingang]">
+          <div class="placeholder-pattern" aria-hidden="true"></div>
+          <figcaption>Eingang</figcaption>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="kundenstimmen" class="section-alt reveal">
+    <div class="container">
+      <h2 class="centered">Was Kund:innen sagen</h2>
+      <p class="section-intro centered">Ein paar Rückmeldungen aus dem Laden – noch keine Bewertungen erfasst? Diese Platzhalter zeigen, wie es einmal aussehen wird.</p>
+      <div class="testimonial-carousel">
+        <button type="button" class="testimonial-arrow" id="testimonial-prev" aria-label="Vorherige Stimme">←</button>
+        <div class="testimonial-viewport">
+          <ul class="testimonial-track" id="testimonial-track">
+            <li class="testimonial-slide">
+              <p class="testimonial-quote">„[Platzhalter: Zitat einer/eines Kund:in über die Beratung oder Auswahl.]“</p>
+              <p class="testimonial-name">[Platzhalter: Name / Initialen]</p>
+            </li>
+            <li class="testimonial-slide">
+              <p class="testimonial-quote">„[Platzhalter: Zitat über die Atmosphäre im Laden.]“</p>
+              <p class="testimonial-name">[Platzhalter: Name / Initialen]</p>
+            </li>
+            <li class="testimonial-slide">
+              <p class="testimonial-quote">„[Platzhalter: Zitat über das Antiquariat oder eine seltene Buchfindung.]“</p>
+              <p class="testimonial-name">[Platzhalter: Name / Initialen]</p>
+            </li>
+            <li class="testimonial-slide">
+              <p class="testimonial-quote">„[Platzhalter: Zitat über die persönliche Empfehlung eines Buches.]“</p>
+              <p class="testimonial-name">[Platzhalter: Name / Initialen]</p>
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="testimonial-arrow" id="testimonial-next" aria-label="Nächste Stimme">→</button>
+      </div>
+      <div class="testimonial-dots" id="testimonial-dots" role="tablist" aria-label="Kundenstimmen auswählen"></div>
+    </div>
+  </section>
+
+  <section id="faq" class="reveal">
+    <div class="container">
+      <h2 class="centered">Häufige Fragen</h2>
+      <p class="section-intro centered">Antworten auf Fragen, die uns im Laden häufig gestellt werden.</p>
+      <div class="faq-list" id="faq-list">
+        <div class="faq-item">
+          <h3><button type="button" class="faq-question" aria-expanded="false">Können Sie Bücher bestellen, die nicht vorrätig sind?</button></h3>
+          <div class="faq-answer">
+            <p>[Platzhalter: Antwort – z. B. Bestellungen sind möglich und meist innerhalb von 1–2 Werktagen abholbereit.]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-question" aria-expanded="false">Kaufen oder tauschen Sie gebrauchte Bücher an?</button></h3>
+          <div class="faq-answer">
+            <p>[Platzhalter: Antwort – z. B. Ankauf nach Sichtung vor Ort, abhängig von Zustand und Sortiment.]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-question" aria-expanded="false">Gibt es Parkmöglichkeiten in der Nähe?</button></h3>
+          <div class="faq-answer">
+            <p>[Platzhalter: Antwort – z. B. Hinweise zu Parkplätzen oder öffentlichen Verkehrsmitteln.]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-question" aria-expanded="false">Finden im Laden Lesungen oder Veranstaltungen statt?</button></h3>
+          <div class="faq-answer">
+            <p>[Platzhalter: Antwort – z. B. gelegentliche Lesungen, Ankündigung im Schaufenster.]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-question" aria-expanded="false">Kann ich ein Buch telefonisch zurücklegen lassen?</button></h3>
+          <div class="faq-answer">
+            <p>[Platzhalter: Antwort – z. B. Zurücklegen für einige Tage nach telefonischer Absprache möglich.]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>[Platzhalter: Ladenname]</h4>
+        <p>[Platzhalter: Kurzer Footer-Satz, z. B. „Ihr unabhängiger Bücherladen in Benrath.“]</p>
+      </div>
+      <div>
+        <h4>Kontakt &amp; Standort</h4>
+        <address>
+          <p>[Platzhalter: Musterstraße 1]</p>
+          <p>[Platzhalter: 12345 Benrath]</p>
+        </address>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul class="footer-links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="copyright-year">2026</span> [Platzhalter: Ladenname]</p>
+      <p>Gestaltet für Benrath.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <button type="button" class="lightbox-close" id="lightbox-close">Schließen ✕</button>
+  <div class="lightbox-content">
+    <div class="lightbox-image placeholder-pattern" aria-hidden="true"></div>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+</div>
+
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Nach oben scrollen">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

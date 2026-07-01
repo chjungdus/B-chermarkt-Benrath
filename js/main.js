@@ -1,0 +1,326 @@
+/* ==========================================================================
+   Büchermarkt Benrath – main.js
+   Inhalt:
+   1. Mobile Navigation
+   2. Aktives Nav-Highlighting beim Scrollen
+   3. Scroll-Reveal-Animationen
+   4. Sortiment-Filter
+   5. Öffnungszeiten-Status
+   6. Galerie-Lightbox
+   7. Zurück-nach-oben-Button
+   8. Copyright-Jahr
+   9. Kundenstimmen-Karussell
+   10. FAQ-Akkordeon
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initMobileNav();
+    initActiveNavHighlighting();
+    initScrollReveal();
+    initCategoryFilter();
+    initOpeningHoursStatus();
+    initGalleryLightbox();
+    initBackToTop();
+    initCopyrightYear();
+    initTestimonialCarousel();
+    initFaqAccordion();
+  });
+
+  /* ---------- 1. Mobile Navigation ---------- */
+  function initMobileNav() {
+    var toggle = document.getElementById("nav-toggle");
+    var nav = document.getElementById("main-nav");
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.focus();
+      }
+    });
+  }
+
+  /* ---------- 2. Aktives Nav-Highlighting ---------- */
+  function initActiveNavHighlighting() {
+    var navLinks = document.querySelectorAll('.main-nav a[href^="#"], .main-nav a[href^="index.html#"]');
+    if (!navLinks.length) return;
+
+    var sections = [];
+    navLinks.forEach(function (link) {
+      var hash = link.getAttribute("href").split("#")[1];
+      var section = hash ? document.getElementById(hash) : null;
+      if (section) sections.push({ link: link, section: section });
+    });
+    if (!sections.length || !("IntersectionObserver" in window)) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var match = sections.find(function (item) {
+            return item.section === entry.target;
+          });
+          if (!match) return;
+          if (entry.isIntersecting) {
+            navLinks.forEach(function (link) {
+              link.classList.remove("active");
+            });
+            match.link.classList.add("active");
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach(function (item) {
+      observer.observe(item.section);
+    });
+  }
+
+  /* ---------- 3. Scroll-Reveal-Animationen ---------- */
+  function initScrollReveal() {
+    var revealEls = document.querySelectorAll(".reveal");
+    if (!revealEls.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      revealEls.forEach(function (el) {
+        el.classList.add("is-revealed");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  /* ---------- 4. Sortiment-Filter ---------- */
+  function initCategoryFilter() {
+    var filterButtons = document.querySelectorAll(".category-filters button");
+    var cards = document.querySelectorAll(".category-card");
+    if (!filterButtons.length || !cards.length) return;
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        filterButtons.forEach(function (btn) {
+          btn.classList.remove("active");
+        });
+        button.classList.add("active");
+
+        var filter = button.getAttribute("data-filter");
+        cards.forEach(function (card) {
+          var category = card.getAttribute("data-category");
+          card.classList.remove("is-dimmed", "is-highlighted");
+          if (filter === "alle") return;
+          if (category === filter) {
+            card.classList.add("is-highlighted");
+          } else {
+            card.classList.add("is-dimmed");
+          }
+        });
+      });
+    });
+  }
+
+  /* ---------- 5. Öffnungszeiten-Status ---------- */
+  function initOpeningHoursStatus() {
+    var badge = document.getElementById("status-badge");
+    var table = document.getElementById("hours-table");
+    if (!badge) return;
+
+    // Platzhalter-Öffnungszeiten passend zu den Angaben in der Tabelle.
+    // Wochentage: 0 = Sonntag ... 6 = Samstag. Anpassen, sobald echte Zeiten feststehen.
+    var openingHours = {
+      0: null, // Sonntag: geschlossen
+      1: { start: 9, end: 18 },
+      2: { start: 9, end: 18 },
+      3: { start: 9, end: 18 },
+      4: { start: 9, end: 18 },
+      5: { start: 9, end: 18 },
+      6: { start: 9, end: 14 }
+    };
+
+    var now = new Date();
+    var day = now.getDay();
+    var hourDecimal = now.getHours() + now.getMinutes() / 60;
+    var today = openingHours[day];
+    var isOpen = !!today && hourDecimal >= today.start && hourDecimal < today.end;
+
+    badge.textContent = isOpen ? "Aktuell geöffnet" : "Aktuell geschlossen";
+    badge.classList.toggle("is-open", isOpen);
+    badge.classList.toggle("is-closed", !isOpen);
+
+    if (table) {
+      var rows = table.querySelectorAll("tr[data-day]");
+      rows.forEach(function (row) {
+        var rowDay = Number(row.getAttribute("data-day"));
+        row.classList.toggle("today", rowDay === day);
+      });
+    }
+  }
+
+  /* ---------- 6. Galerie-Lightbox ---------- */
+  function initGalleryLightbox() {
+    var items = document.querySelectorAll(".gallery-item");
+    var lightbox = document.getElementById("lightbox");
+    if (!items.length || !lightbox) return;
+
+    var closeButton = document.getElementById("lightbox-close");
+    var captionEl = document.getElementById("lightbox-caption");
+    var lastFocused = null;
+
+    function openLightbox(caption) {
+      lastFocused = document.activeElement;
+      captionEl.textContent = caption || "";
+      lightbox.classList.add("is-visible");
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-visible");
+      if (lastFocused && typeof lastFocused.focus === "function") {
+        lastFocused.focus();
+      }
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener("click", function () {
+        openLightbox(item.getAttribute("data-caption"));
+      });
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox.classList.contains("is-visible")) {
+        closeLightbox();
+      }
+    });
+  }
+
+  /* ---------- 7. Zurück-nach-oben-Button ---------- */
+  function initBackToTop() {
+    var button = document.getElementById("back-to-top");
+    if (!button) return;
+
+    function toggleVisibility() {
+      button.classList.toggle("is-visible", window.scrollY > 480);
+    }
+
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    button.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* ---------- 8. Copyright-Jahr ---------- */
+  function initCopyrightYear() {
+    var yearEl = document.getElementById("copyright-year");
+    if (!yearEl) return;
+    yearEl.textContent = String(new Date().getFullYear());
+  }
+
+  /* ---------- 9. Kundenstimmen-Karussell ---------- */
+  function initTestimonialCarousel() {
+    var track = document.getElementById("testimonial-track");
+    var prevButton = document.getElementById("testimonial-prev");
+    var nextButton = document.getElementById("testimonial-next");
+    var dotsContainer = document.getElementById("testimonial-dots");
+    if (!track || !prevButton || !nextButton || !dotsContainer) return;
+
+    var slides = track.querySelectorAll(".testimonial-slide");
+    if (!slides.length) return;
+
+    var currentIndex = 0;
+    var dots = [];
+
+    slides.forEach(function (_, index) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", "Stimme " + (index + 1) + " anzeigen");
+      dot.addEventListener("click", function () {
+        goToSlide(index);
+      });
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
+
+    function goToSlide(index) {
+      currentIndex = (index + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + currentIndex * 100 + "%)";
+      dots.forEach(function (dot, dotIndex) {
+        dot.classList.toggle("active", dotIndex === currentIndex);
+      });
+    }
+
+    prevButton.addEventListener("click", function () {
+      goToSlide(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+      goToSlide(currentIndex + 1);
+    });
+
+    goToSlide(0);
+
+    var autoplayInterval = window.setInterval(function () {
+      goToSlide(currentIndex + 1);
+    }, 7000);
+
+    track.closest(".testimonial-carousel").addEventListener("mouseenter", function () {
+      window.clearInterval(autoplayInterval);
+    });
+  }
+
+  /* ---------- 10. FAQ-Akkordeon ---------- */
+  function initFaqAccordion() {
+    var faqItems = document.querySelectorAll(".faq-item");
+    if (!faqItems.length) return;
+
+    faqItems.forEach(function (item) {
+      var button = item.querySelector(".faq-question");
+      if (!button) return;
+
+      button.addEventListener("click", function () {
+        var isOpen = item.classList.contains("is-open");
+        item.classList.toggle("is-open", !isOpen);
+        button.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+  }
+})();
