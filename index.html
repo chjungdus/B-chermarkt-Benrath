@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bücher-Welt – Bücher, Kinderbücher &amp; Geschenke</title>
 <meta name="description" content="Bücher-Welt ist ein inhabergeführter Bücherladen in Benrath mit eigener Kinderabteilung und einer sorgfältig kuratierten Auswahl an Romanen, Sachbüchern und Geschenken." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -57,7 +54,7 @@
 
   <section id="ueber-uns" class="reveal">
     <div class="container about-grid">
-      <div>
+      <div class="about-text">
         <h2>Über uns</h2>
         <p class="section-intro">Bücher-Welt ist der Nachbarschaftsbuchladen für Benrath – mit Herz, Zeit für Beratung und einem Faible für gute Geschichten.</p>
         <p>Bei uns wird noch persönlich beraten: Wer stöbern möchte, ist genauso willkommen wie alle, die gezielt nach einem bestimmten Buch suchen.</p>
@@ -154,7 +151,7 @@
     </div>
   </section>
 
-  <section id="empfehlungen" class="reveal">
+  <section id="empfehlungen" class="section-alt reveal">
     <div class="container">
       <h2 class="centered">Empfehlungen des Monats</h2>
       <p class="section-intro centered">Eine kleine Auswahl dessen, was gerade auf unserem Empfehlungstisch liegt.</p>
@@ -188,29 +185,33 @@
     <div class="container hours-layout">
       <div>
         <h2>Öffnungszeiten</h2>
-        <p class="status-badge is-closed" id="status-badge">Öffnungszeiten werden geprüft …</p>
-        <table class="hours-table" id="hours-table">
-          <tbody>
-            <tr data-day="1"><th>Montag</th><td>9:00–18:00 Uhr</td></tr>
-            <tr data-day="2"><th>Dienstag</th><td>9:00–18:00 Uhr</td></tr>
-            <tr data-day="3"><th>Mittwoch</th><td>9:00–18:00 Uhr</td></tr>
-            <tr data-day="4"><th>Donnerstag</th><td>9:00–18:00 Uhr</td></tr>
-            <tr data-day="5"><th>Freitag</th><td>9:00–18:00 Uhr</td></tr>
-            <tr data-day="6"><th>Samstag</th><td>9:00–14:00 Uhr</td></tr>
-            <tr data-day="0"><th>Sonntag</th><td>Geschlossen</td></tr>
-          </tbody>
-        </table>
+        <div class="info-panel">
+          <p class="status-badge is-closed" id="status-badge">Öffnungszeiten werden geprüft …</p>
+          <table class="hours-table" id="hours-table">
+            <tbody>
+              <tr data-day="1"><th>Montag</th><td>9:00–18:00 Uhr</td></tr>
+              <tr data-day="2"><th>Dienstag</th><td>9:00–18:00 Uhr</td></tr>
+              <tr data-day="3"><th>Mittwoch</th><td>9:00–18:00 Uhr</td></tr>
+              <tr data-day="4"><th>Donnerstag</th><td>9:00–18:00 Uhr</td></tr>
+              <tr data-day="5"><th>Freitag</th><td>9:00–18:00 Uhr</td></tr>
+              <tr data-day="6"><th>Samstag</th><td>9:00–14:00 Uhr</td></tr>
+              <tr data-day="0"><th>Sonntag</th><td>Geschlossen</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="location-box">
         <h2>Standort</h2>
-        <address>
-          <p>Bücher-Welt</p>
-          <p>Benrath</p>
-        </address>
-        <div class="map-placeholder">
-          <div>
-            <span>Bücher-Welt in Benrath</span>
-            Den genauen Standort erfahren Sie im Laden oder telefonisch.
+        <div class="info-panel">
+          <address>
+            <p>Bücher-Welt</p>
+            <p>Benrath</p>
+          </address>
+          <div class="map-placeholder">
+            <div>
+              <span>Bücher-Welt in Benrath</span>
+              Den genauen Standort erfahren Sie im Laden oder telefonisch.
+            </div>
           </div>
         </div>
       </div>
@@ -270,7 +271,7 @@
     <div class="container">
       <h2 class="centered">Häufige Fragen</h2>
       <p class="section-intro centered">Antworten auf Fragen, die uns im Laden häufig gestellt werden.</p>
-      <div class="faq-list" id="faq-list">
+      <div class="faq-list info-panel" id="faq-list">
         <div class="faq-item">
           <h3><button type="button" class="faq-question" aria-expanded="false">Können Sie Bücher bestellen, die nicht vorrätig sind?</button></h3>
           <div class="faq-answer">

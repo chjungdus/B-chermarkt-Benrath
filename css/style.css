@@ -70,9 +70,9 @@ button {
   --color-border: #d8cfb8;
   --color-border-strong: #b9ac8a;
 
-  /* Schriften */
-  --font-heading: "Playfair Display", "Georgia", "Times New Roman", serif;
-  --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  /* Schriften (bewusst nur System-Schriften, keine externen Font-Requests) */
+  --font-heading: "Georgia", "Times New Roman", serif;
+  --font-body: "Segoe UI", Arial, sans-serif;
 
   /* Abstände */
   --space-xs: 0.5rem;
@@ -91,7 +91,7 @@ button {
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background-color: var(--color-paper);
+  background-color: var(--color-forest);
   line-height: 1.65;
   font-size: 1rem;
 }
@@ -149,7 +149,7 @@ p {
 }
 
 .section-intro {
-  color: var(--color-text-muted);
+  color: rgba(245, 241, 232, 0.82);
   font-size: 1.1rem;
   max-width: 60ch;
   margin-bottom: var(--space-lg);
@@ -177,17 +177,20 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
-.section-alt {
-  background-color: var(--color-paper-alt);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+section h2 {
+  color: var(--color-paper);
 }
 
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-border-strong);
-  margin-block: var(--space-lg);
+.section-alt {
+  background-color: var(--color-forest-dark);
+  border-top: 1px solid rgba(245, 241, 232, 0.12);
+  border-bottom: 1px solid rgba(245, 241, 232, 0.12);
+}
+
+.info-panel {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+  padding: var(--space-md);
 }
 
 .visually-hidden {
@@ -219,8 +222,8 @@ section[id] {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--color-paper);
-  border-bottom: 1px solid var(--color-border-strong);
+  background-color: var(--color-forest);
+  border-bottom: 1px solid var(--color-gold);
 }
 
 .site-header .container {
@@ -234,7 +237,7 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--color-forest-dark);
+  color: var(--color-paper);
   letter-spacing: 0.02em;
   display: flex;
   flex-direction: column;
@@ -259,7 +262,7 @@ section[id] {
 .main-nav a {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-forest-dark);
+  color: var(--color-paper);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding-block: 0.3rem;
@@ -271,7 +274,7 @@ section[id] {
 .main-nav a:focus-visible,
 .main-nav a.active {
   border-bottom-color: var(--color-gold);
-  color: var(--color-forest);
+  color: var(--color-gold);
 }
 
 .nav-toggle {
@@ -284,7 +287,7 @@ section[id] {
 .nav-toggle span {
   width: 26px;
   height: 2px;
-  background-color: var(--color-forest-dark);
+  background-color: var(--color-paper);
   transition: transform var(--transition), opacity var(--transition);
 }
 
@@ -417,11 +420,6 @@ section[id] {
   overflow: hidden;
 }
 
-.about-figure .placeholder-pattern {
-  position: absolute;
-  inset: 0;
-}
-
 .about-figure figcaption {
   position: absolute;
   left: 0;
@@ -445,14 +443,19 @@ section[id] {
   display: flex;
   gap: var(--space-sm);
   align-items: baseline;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(245, 241, 232, 0.25);
   padding-bottom: var(--space-sm);
+  color: var(--color-paper);
 }
 
 .about-facts strong {
   font-family: var(--font-heading);
-  color: var(--color-forest);
+  color: var(--color-gold);
   min-width: 140px;
+}
+
+.about-text p {
+  color: rgba(245, 241, 232, 0.9);
 }
 
 /* ---------- 8. Sortiment ---------- */
@@ -481,9 +484,9 @@ section[id] {
 }
 
 .category-filters button.active {
-  background-color: var(--color-forest);
-  border-color: var(--color-forest);
-  color: var(--color-white);
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-forest-dark);
 }
 
 .category-grid {
@@ -522,8 +525,8 @@ section[id] {
 }
 
 .category-card.is-highlighted {
-  border-color: var(--color-forest);
-  box-shadow: 4px 4px 0 var(--color-forest);
+  border-color: var(--color-gold);
+  box-shadow: 4px 4px 0 var(--color-gold);
   transform: translate(-2px, -2px);
 }
 
@@ -705,14 +708,8 @@ section[id] {
   cursor: pointer;
 }
 
-.gallery-item .placeholder-pattern {
-  width: 100%;
-  height: 100%;
-  transition: transform var(--transition);
-}
-
-.gallery-item:hover .placeholder-pattern,
-.gallery-item:focus-visible .placeholder-pattern {
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
   transform: scale(1.06);
 }
 
@@ -785,23 +782,14 @@ section[id] {
   display: block;
 }
 
+.gallery-item img {
+  transition: transform var(--transition);
+}
+
 .lightbox-image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-/* Platzhaltermuster für noch fehlende Fotos */
-.placeholder-pattern {
-  background-color: var(--color-paper-deep);
-  background-image: repeating-linear-gradient(
-      45deg,
-      rgba(47, 79, 62, 0.14) 0,
-      rgba(47, 79, 62, 0.14) 2px,
-      transparent 2px,
-      transparent 14px
-    ),
-    linear-gradient(180deg, rgba(184, 147, 95, 0.18), rgba(47, 79, 62, 0.1));
 }
 
 /* ---------- 10b. FAQ ---------- */
@@ -923,6 +911,9 @@ section[id] {
 .legal-content {
   max-width: 74ch;
   margin-inline: auto;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+  padding: var(--space-lg);
 }
 
 .legal-content h2 {
@@ -966,14 +957,14 @@ section[id] {
   position: fixed;
   right: var(--space-md);
   bottom: var(--space-md);
-  background-color: var(--color-forest);
+  background-color: var(--color-forest-dark);
   color: var(--color-white);
   width: 46px;
   height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--color-gold);
+  border: 2px solid var(--color-gold);
   font-size: 1.2rem;
   opacity: 0;
   visibility: hidden;
@@ -1033,8 +1024,8 @@ section[id] {
   .main-nav {
     position: fixed;
     inset: 84px 0 0 0;
-    background-color: var(--color-paper);
-    border-top: 1px solid var(--color-border-strong);
+    background-color: var(--color-forest);
+    border-top: 1px solid var(--color-gold);
     transform: translateY(-8px);
     opacity: 0;
     visibility: hidden;
