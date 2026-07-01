@@ -753,6 +753,20 @@ section[id] {
   padding: 0.4rem 0.8rem;
 }
 
+.about-figure img,
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lightbox-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* Platzhaltermuster für noch fehlende Fotos */
 .placeholder-pattern {
   background-color: var(--color-paper-deep);

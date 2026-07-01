@@ -69,8 +69,8 @@
         </ul>
       </div>
       <figure class="about-figure">
-        <div class="placeholder-pattern" aria-hidden="true"></div>
-        <figcaption>[Platzhalter: Foto Ladeninhaber:in / Innenansicht]</figcaption>
+        <img src="assets/img/laden-innenansicht.jpg" width="1050" height="1400" alt="Blick durch die Regalgänge im Laden" loading="lazy" />
+        <figcaption>Blick in den Laden</figcaption>
       </figure>
     </div>
   </section>
@@ -192,31 +192,47 @@
   <section id="galerie" class="section-alt reveal">
     <div class="container">
       <h2 class="centered">Einblicke in den Laden</h2>
-      <p class="section-intro centered">Ein paar Impressionen aus [Platzhalter: Ladenname]. Sobald eigene Fotos vorliegen, ersetzen sie diese Platzhalter.</p>
+      <p class="section-intro centered">Echte Impressionen aus [Platzhalter: Ladenname].</p>
       <div class="gallery-grid" id="gallery-grid">
-        <button type="button" class="gallery-item" data-caption="[Platzhalter: Schaufenster von außen]">
-          <div class="placeholder-pattern" aria-hidden="true"></div>
+        <button type="button" class="gallery-item" data-caption="Schaufenster von außen">
+          <img src="assets/img/schaufenster.jpg" width="1400" height="1050" alt="Schaufenster des Ladens von außen" loading="lazy" />
           <figcaption>Schaufenster</figcaption>
         </button>
-        <button type="button" class="gallery-item" data-caption="[Platzhalter: Regale mit Romanen]">
-          <div class="placeholder-pattern" aria-hidden="true"></div>
+        <button type="button" class="gallery-item" data-caption="Eingangsbereich mit Pixi-Figur und Büchertischen">
+          <img src="assets/img/eingang.jpg" width="1050" height="1400" alt="Eingangsbereich mit Pixi-Figur und Büchertischen" loading="lazy" />
+          <figcaption>Eingang</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="Taschenbücher zum Sonderpreis vor dem Laden">
+          <img src="assets/img/taschenbuecher-aktion.jpg" width="1400" height="1050" alt="Taschenbücher-Wagen zum Sonderpreis" loading="lazy" />
+          <figcaption>Taschenbücher-Aktion</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="Regal mit Romanen">
+          <img src="assets/img/romane-regal.jpg" width="1400" height="1050" alt="Bücherregal mit Romanen" loading="lazy" />
           <figcaption>Romane-Regal</figcaption>
         </button>
-        <button type="button" class="gallery-item" data-caption="[Platzhalter: Leseecke mit Sitzgelegenheit]">
-          <div class="placeholder-pattern" aria-hidden="true"></div>
-          <figcaption>Leseecke</figcaption>
+        <button type="button" class="gallery-item" data-caption="Regal mit Bestsellern und Buchreihen">
+          <img src="assets/img/bestseller-reihen.jpg" width="1400" height="1050" alt="Regal mit Bestsellern und Buchreihen" loading="lazy" />
+          <figcaption>Bestseller</figcaption>
         </button>
-        <button type="button" class="gallery-item" data-caption="[Platzhalter: Verkaufstheke]">
-          <div class="placeholder-pattern" aria-hidden="true"></div>
-          <figcaption>Verkaufstheke</figcaption>
+        <button type="button" class="gallery-item" data-caption="Sachbücher und Ratgeber">
+          <img src="assets/img/sachbuecher.jpg" width="1050" height="1400" alt="Regal mit Sachbüchern und Ratgebern" loading="lazy" />
+          <figcaption>Sachbücher</figcaption>
         </button>
-        <button type="button" class="gallery-item" data-caption="[Platzhalter: Antiquariat-Ecke]">
-          <div class="placeholder-pattern" aria-hidden="true"></div>
-          <figcaption>Antiquariat</figcaption>
+        <button type="button" class="gallery-item" data-caption="Geschenke und Grußkarten">
+          <img src="assets/img/geschenke-karten.jpg" width="1050" height="1400" alt="Ständer mit Geschenken und Grußkarten" loading="lazy" />
+          <figcaption>Geschenke &amp; Karten</figcaption>
         </button>
-        <button type="button" class="gallery-item" data-caption="[Platzhalter: Ladeneingang]">
-          <div class="placeholder-pattern" aria-hidden="true"></div>
-          <figcaption>Eingang</figcaption>
+        <button type="button" class="gallery-item" data-caption="Kinderbücher-Tisch">
+          <img src="assets/img/kinderbuecher-tisch.jpg" width="1400" height="1050" alt="Tisch mit Kinderbüchern" loading="lazy" />
+          <figcaption>Kinderbücher</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="Kinderbuch- und Spielecke">
+          <img src="assets/img/kinderbuecher-spielecke.jpg" width="1050" height="1400" alt="Drehständer mit Kinderbüchern und Spielzeug" loading="lazy" />
+          <figcaption>Kinder-Spielecke</figcaption>
+        </button>
+        <button type="button" class="gallery-item" data-caption="Spielwaren-Ecke am Fenster">
+          <img src="assets/img/spielwaren-ecke.jpg" width="1050" height="1400" alt="Regal mit Spielwaren am Schaufenster" loading="lazy" />
+          <figcaption>Spielwaren</figcaption>
         </button>
       </div>
     </div>
@@ -327,7 +343,9 @@
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildansicht">
   <button type="button" class="lightbox-close" id="lightbox-close">Schließen ✕</button>
   <div class="lightbox-content">
-    <div class="lightbox-image placeholder-pattern" aria-hidden="true"></div>
+    <div class="lightbox-image">
+      <img src="" alt="" id="lightbox-img" />
+    </div>
     <p class="lightbox-caption" id="lightbox-caption"></p>
   </div>
 </div>

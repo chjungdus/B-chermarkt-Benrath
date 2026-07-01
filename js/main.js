@@ -193,11 +193,17 @@
 
     var closeButton = document.getElementById("lightbox-close");
     var captionEl = document.getElementById("lightbox-caption");
+    var imageEl = document.getElementById("lightbox-img");
     var lastFocused = null;
 
-    function openLightbox(caption) {
+    function openLightbox(item) {
+      var sourceImg = item.querySelector("img");
       lastFocused = document.activeElement;
-      captionEl.textContent = caption || "";
+      captionEl.textContent = item.getAttribute("data-caption") || "";
+      if (sourceImg && imageEl) {
+        imageEl.src = sourceImg.src;
+        imageEl.alt = sourceImg.alt;
+      }
       lightbox.classList.add("is-visible");
       closeButton.focus();
     }
@@ -211,7 +217,7 @@
 
     items.forEach(function (item) {
       item.addEventListener("click", function () {
-        openLightbox(item.getAttribute("data-caption"));
+        openLightbox(item);
       });
     });
 
