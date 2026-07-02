@@ -121,16 +121,16 @@
     var table = document.getElementById("hours-table");
     if (!badge) return;
 
-    // Platzhalter-Öffnungszeiten passend zu den Angaben in der Tabelle.
-    // Wochentage: 0 = Sonntag ... 6 = Samstag. Anpassen, sobald echte Zeiten feststehen.
+    // Öffnungszeiten passend zu den Angaben in der Tabelle.
+    // Wochentage: 0 = Sonntag ... 6 = Samstag.
     var openingHours = {
       0: null, // Sonntag: geschlossen
-      1: { start: 9, end: 18 },
-      2: { start: 9, end: 18 },
-      3: { start: 9, end: 18 },
-      4: { start: 9, end: 18 },
-      5: { start: 9, end: 18 },
-      6: { start: 9, end: 14 }
+      1: { start: 10, end: 16 },
+      2: { start: 10, end: 16 },
+      3: { start: 10, end: 16 },
+      4: { start: 10, end: 16 },
+      5: { start: 10, end: 16 },
+      6: { start: 10, end: 16 }
     };
 
     var now = new Date();
